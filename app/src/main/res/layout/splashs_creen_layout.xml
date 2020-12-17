@@ -4,15 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Splashscreen">
-
+    tools:context=".Splashscreen"
+    android:background="@color/backgroundred">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/tarajimobile"
+        android:layout_gravity="center"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="مكشخ و عليك الكلام"
+        android:textStyle="bold|italic"
+        android:textSize="30dp"
+        android:textColor="@color/yellow"
+        android:layout_marginRight="50dp"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/by"
+        android:textStyle="bold|italic"
+        android:textSize="25dp"
+        android:textColor="@color/yellow"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="97dp"
+        android:src="@drawable/telecom2"
+        android:layout_gravity="center"/>
+</LinearLayout>
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:src="@drawable/tarajititres"
 
+    app:layout_constraintBottom_toBottomOf="parent"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

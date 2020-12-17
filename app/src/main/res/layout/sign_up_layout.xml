@@ -8,40 +8,109 @@
 
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/backgroundred"
+    >
 
-    <Button
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:src="@drawable/tarajimobile"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inscri"
+            android:textStyle="bold"
+            android:textColor="@color/yellow"
+            android:layout_gravity="left"
+            android:textSize="20dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextborder"
+            android:hint="@string/hintnom"
+            android:padding="3dp"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextborder"
+            android:hint="@string/hintnum"
+            android:padding="3dp"
+            android:inputType="number"
+            android:layout_marginBottom="10dp"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextborder"
+            android:hint="@string/hintemail"
+            android:padding="3dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="10dp"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextborder"
+            android:hint="@string/hintpass"
+            android:padding="3dp"
+            android:inputType="textPassword"
+
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/acceptterms"
+            android:layout_gravity="left"
+            android:textColor="@color/white"
+            android:buttonTint="@color/white"
+            />
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/create_compte"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginLeft="162dp"
-        android:layout_marginTop="576dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginRight="162dp"
-        android:layout_marginBottom="107dp"
-        android:text="create compte"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/btninscri"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/yellow"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
+        android:padding="3dp"
+        />
 
     <Button
         android:id="@+id/se_connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="126dp"
-        android:layout_marginLeft="126dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:layout_marginBottom="16dp"
-        android:text="se connecter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_compte" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+      />
+
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/loginlink"
+        android:textColor="@color/yellow"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>
 </layout>

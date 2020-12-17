@@ -4,19 +4,260 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
-
-    <TextView
-        android:id="@+id/text_home"
+    tools:context=".ui.home.HomeFragment"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+<!--        <TextView-->
+<!--            android:id="@+id/text_home"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20dp"
+                android:text="@string/soonmatch"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                   >
+                    <TextView
+                        android:id="@+id/matchtype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ligue 1 tunisiene"
+                        android:textColor="@color/bluegray"
+                        android:layout_marginRight="5dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textColor="@color/bluegray"
+                        android:layout_marginRight="5dp"/>
+                    <TextView
+                        android:id="@+id/matchdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16 Decembre 2020"
+                        android:textColor="@color/bluegray"
+                        android:layout_marginRight="5dp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/imgequipehome"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/tarajilogo"
+                            />
+                        <TextView
+                            android:id="@+id/nomequipehome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Es Tunis"
+                            android:gravity="center_horizontal"
+
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_gravity="bottom"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/bluegray"
+                            android:text="contre"
+                            android:gravity="bottom"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:orientation="vertical"
+                        >
+                        <ImageView
+                            android:id="@+id/imgequipeaway"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/adversairelogo"
+                            android:layout_gravity="center"
+                            />
+
+                        <TextView
+                            android:id="@+id/nomequipeaway"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Club africain"
+                            android:gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20dp"
+                android:text="@string/classementligue"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="10dp">
+                <LinearLayout
+                    android:id = "@+id/relativeLayout1"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content">
+                    <TextView
+                        android:layout_width = "0dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "5"
+                        android:gravity = "center"
+                        android:padding = "5dp"
+                        android:text = "@string/j"
+                        android:textColor = "#ffffff" />
+
+                    <TextView
+                        android:layout_width = "0dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "1"
+                        android:gravity = "center"
+                        android:padding = "5dp"
+                        android:text = "@string/j"
+                        android:background = "@color/red"
+                        android:textColor = "@color/white"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"/>
+
+
+
+                    <TextView
+                        android:layout_width = "0dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "1"
+                        android:gravity = "center"
+                        android:padding = "5dp"
+                        android:text = "@string/g"
+                        android:background = "@color/red"
+                        android:textColor = "#ffffff"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"/>
+
+                    <TextView
+                        android:layout_width = "0dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "1"
+                        android:gravity = "center"
+                        android:padding = "5dp"
+                        android:text = "@string/n"
+                        android:background = "@color/red"
+                        android:textColor = "@color/white"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"/>
+                    <TextView
+                        android:layout_width = "0dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "1"
+                        android:gravity = "center"
+                        android:padding = "5dp"
+                        android:text = "@string/p"
+                        android:background = "@color/red"
+                        android:textColor = "#ffffff"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"/>
+                    <TextView
+                        android:layout_width = "0dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "1"
+                        android:gravity = "center"
+                        android:padding = "5dp"
+                        android:text = "@string/bp"
+                        android:background = "@color/red"
+                        android:textColor = "#ffffff"
+                        android:layout_marginLeft="3dp"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id = "@+id/classement_recycleview"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

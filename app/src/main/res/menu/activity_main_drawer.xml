@@ -5,16 +5,45 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_baseline_library_music_24"
+            android:id="@+id/nav_music"
+            android:icon="@drawable/headphone"
             android:title="@string/musique" />
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_photo"
+            android:icon="@drawable/camera"
             android:title="@string/menu_gallery" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_video"
+            android:icon="@drawable/video"
+            android:title="@string/videntrainment" />
+        <item
+            android:id="@+id/nav_pic"
+            android:icon="@drawable/image"
+            android:title="@string/pictmenu" />
+        <item
+            android:id="@+id/nav_game"
+            android:icon="@drawable/game"
+            android:title="@string/jeumenu" />
+        <item
+            android:id="@+id/nav_formation"
+            android:icon="@drawable/football"
+            android:title="@string/formationmenu" />
+        <item
+            android:id="@+id/nav_rating"
+            android:icon="@drawable/star"
+            android:title="@string/notemenu" />
+        <item
+            android:id="@+id/nav_store"
+            android:icon="@drawable/cartblack"
+            android:title="@string/tmobilemenu" />
+        <item
+            android:id="@+id/nav_live"
+            android:icon="@drawable/liveblack"
+            android:title="@string/livemenu" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/info"
+            android:title="@string/aboutmenu"
+            />
     </group>
 </menu>
