@@ -12,4 +12,38 @@
     <string name="menu_gallery">Gallerie photo</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="musique">Taraji Music</string>
+    <string name="by">BY</string>
+    <string name="inscri">Inscrivez-vous !</string>
+    <string name="hintnom">Nom et prenom</string>
+    <string name="hintnum">Numero</string>
+    <string name="hintemail">Email</string>
+    <string name="hintpass">mot de passe</string>
+    <string name="acceptterms">j\'accepte les condition d\'utilistaion</string>
+    <string name="btninscri">Inscription</string>
+    <string name="loginlink">Deja inscrit? se connecter</string>
+    <string name="connecttitle">Je me connect</string>
+    <string name="forgetpasslink">Mot de passe oublie</string>
+    <string name="stayconnectswitcher">Rester connecter</string>
+    <string name="connectbtn">Connexion</string>
+    <string name="createaccountlink">Vous n\'avez pas de compte?créer un nouveau</string>
+    <string name="videntrainment">Video entrainement</string>
+    <string name="pictmenu">Taswirti</string>
+    <string name="jeumenu">Dawer Werba7</string>
+    <string name="formationmenu">7ot Tachkila</string>
+    <string name="notemenu">Noti jouerette</string>
+    <string name="tmobilemenu">Taraji Mobile store</string>
+    <string name="aboutmenu">A propos</string>
+    <string name="livemenu">Live Streaming</string>
+    <string name="appvesrion">Taraji Mobile-version 1.01</string>
+    <string name="soonmatch">Match à venir</string>
+    <string name="classementligue">Classement ligue 1</string>
+    <string name="j">J</string>
+    <string name="g">G</string>
+    <string name="n">N</string>
+    <string name="p">P</string>
+    <string name="bp">Bp</string>
+    <string name="music_title">Taraji music</string>
+    <string name="music_description">Ecoutez les meilleurs chansons du Taraji !</string>
+
+
 </resources>
