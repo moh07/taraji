@@ -27,5 +27,13 @@ public class login extends AppCompatActivity {
                 finish();
             }
         });
+        LoginLayoutBinding.CreeCompte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(login.this, signUp.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 }

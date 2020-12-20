@@ -21,11 +21,16 @@
 
     <fragment
         android:id="@+id/nav_video"
-        android:name="com.olivapps.taraji.fragement.slideshow.SlideshowFragment"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.olivapps.taraji.fragement.videos.videos"
+        tools:layout="@layout/videos_fragment" />
     <fragment
         android:id="@+id/botomlive"
-        android:name="com.olivapps.taraji.fragement.gallery.GalleryFragment"
+        android:name="com.olivapps.taraji.fragement.live.live"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/live_fragment" />
+    <fragment
+        android:id="@+id/nav_live"
+        android:name="com.olivapps.taraji.fragement.live.live"
+        android:label="@string/live"
+        tools:layout="@layout/live_fragment" />
 </navigation>
