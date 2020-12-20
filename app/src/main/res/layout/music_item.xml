@@ -7,40 +7,44 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/music_id"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:textColor="@color/yellow"
         android:textSize="20dp"
-        android:gravity="left"
+        android:gravity="center"
         android:layout_marginRight="10dp"/>
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="3"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/music_name"
             android:layout_height="wrap_content"
             android:textColor="@color/yellow"
+            android:singleLine = "true"
             android:textSize="20dp"
-            android:gravity="left"/>
+            />
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/backgroundred"/>
+            android:background="@color/backgroundred"
+            android:gravity="left"/>
 
     </LinearLayout>
     <com.google.android.material.button.MaterialButton
-        android:layout_width="30dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:theme="@style/Theme.Taraji"
         app:icon="@drawable/play"
         app:iconTint="@color/yellow"
-        app:iconSize="20dp"
-        android:gravity="right"
-
+        app:iconSize="15dp"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/play"
         />
 
 

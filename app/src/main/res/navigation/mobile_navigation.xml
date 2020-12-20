@@ -24,6 +24,10 @@
         android:name="com.olivapps.taraji.fragement.videos.videos"
         tools:layout="@layout/videos_fragment" />
     <fragment
+        android:id="@+id/nav_rating"
+        android:name="com.olivapps.taraji.fragement.rating.RatingFragment"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
         android:id="@+id/botomlive"
         android:name="com.olivapps.taraji.fragement.live.live"
         android:label="@string/menu_slideshow"

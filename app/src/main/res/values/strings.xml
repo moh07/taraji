@@ -45,7 +45,11 @@
     <string name="p">P</string>
     <string name="bp">Bp</string>
     <string name="music_title">Taraji music</string>
+    <string name="rating_title">Noti Jouertte</string>
+    <string name="gallery_title">Galerie Photos</string>
     <string name="music_description">Ecoutez les meilleurs chansons du Taraji !</string>
+    <string name="rating_description">Evaluez les joueurs les matches !</string>
+    <string name="gallery_description">Seance d\'entrainement 26-10-2020 </string>
 
 
 </resources>
