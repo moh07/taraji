@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".fragement.rating.RatingFragment"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
-    tools:context=".fragement.gallery.GalleryFragment"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,21 +21,30 @@
             android:layout_height="wrap_content"
             android:textColor="@color/yellow"
             android:textSize="20dp"
-            android:text="@string/gallery_title"
+            android:text="@string/rating_title"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="@string/gallery_description"
-            android:layout_marginBottom="10dp"/>
+            android:text="@string/rating_description"/>
+
+
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
+            android:id = "@+id/rating_recycleview"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+
+
             />
+
+
+
+
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
