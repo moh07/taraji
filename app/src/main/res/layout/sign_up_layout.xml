@@ -94,23 +94,21 @@
         android:padding="3dp"
         />
 
-    <Button
-        android:id="@+id/se_connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      />
+
 
 
 
     </LinearLayout>
     <TextView
+        android:id="@+id/se_connect"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loginlink"
         android:textColor="@color/yellow"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:clickable="true"/>
 
 </RelativeLayout>
 </layout>

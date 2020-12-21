@@ -21,8 +21,8 @@
 
     <fragment
         android:id="@+id/nav_video"
-        android:name="com.olivapps.taraji.fragement.slideshow.SlideshowFragment"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.olivapps.taraji.fragement.videos.videos"
+        tools:layout="@layout/videos_fragment" />
     <fragment
         android:id="@+id/nav_rating"
         android:name="com.olivapps.taraji.fragement.rating.RatingFragment"
@@ -33,12 +33,31 @@
         tools:layout="@layout/profile_fragment" />
     <fragment
         android:id="@+id/botomlive"
-        android:name="com.olivapps.taraji.fragement.gallery.GalleryFragment"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.olivapps.taraji.fragement.live.live"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/live_fragment" />
+    <fragment
+        android:id="@+id/nav_live"
+        android:name="com.olivapps.taraji.fragement.live.live"
+        android:label="@string/live"
+        tools:layout="@layout/live_fragment" />
     <fragment
         android:id="@+id/nav_game"
-        android:name="com.olivapps.taraji.fragement.cellue.CellueFragment"
-        tools:layout="@layout/cellue_fragment" />
+        android:name="com.olivapps.taraji.fragement.roulette.roulette"
+        android:label="@string/jeumenu"
+        tools:layout="@layout/roulette_fragment" />
+    <fragment
+        android:id="@+id/nav_formation"
+        android:name="com.olivapps.taraji.fragement.formation.formation"
+        android:label="@string/formationmenu"
+        tools:layout="@layout/formation_fragment" />
+    <fragment
+        android:id="@+id/nav_pic"
+        android:name="com.olivapps.taraji.fragement.maphoto.photo"
+        android:label="@string/pictmenu"
+        tools:layout="@layout/photo_fragment" />
+
+
     <fragment
         android:id="@+id/nav_about"
         android:name="com.olivapps.taraji.fragement.contact.ContactFragment"

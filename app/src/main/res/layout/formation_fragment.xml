@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragement.formation.formation">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="60dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:background="@drawable/terrain"
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="30dp"
+        android:paddingTop="35dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:src="@drawable/gardian"
+                android:layout_centerHorizontal="true"                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_marginLeft="70dp"
+
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="70dp"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_centerHorizontal="true"                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_marginLeft="70dp"
+
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="70dp"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                 />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:src="@drawable/joueur"
+                android:layout_centerHorizontal="true"                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:background="@drawable/borderrec"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="77dp"
+            android:src="@drawable/gardian"
+            android:layout_weight="2"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:src="@drawable/joueur"
+            android:layout_weight="2"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:src="@drawable/joueur"
+            android:layout_weight="2"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:src="@drawable/joueur"
+            android:layout_weight="2"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:src="@drawable/joueur"
+            android:layout_weight="2"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>
+
+</FrameLayout>

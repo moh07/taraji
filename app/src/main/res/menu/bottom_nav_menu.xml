@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/botomacceuil"
-        android:icon="@drawable/livestreaming"
+        android:icon="@drawable/est_logo"
         android:title=""
 
         />
