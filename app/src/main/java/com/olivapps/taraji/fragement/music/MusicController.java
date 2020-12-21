@@ -9,7 +9,9 @@ import com.olivapps.taraji.R;
 public class MusicController extends MediaController {
 
     public MusicController(Context context) {
-        super(new ContextThemeWrapper(context, R.style.Theme_MusicPlayer));
+        super(context);
     }
-    public void hide(){}
+    public void hide(){
+        super.hide();
+    }
 }

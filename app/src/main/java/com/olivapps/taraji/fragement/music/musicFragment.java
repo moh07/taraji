@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.IBinder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +31,7 @@ import com.olivapps.taraji.adapters.MusicAdapter;
 import com.olivapps.taraji.remote.model.Music;
 import com.olivapps.taraji.services.MusicService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class musicFragment extends Fragment implements MediaController.MediaPlayerControl {
@@ -65,23 +67,15 @@ public class musicFragment extends Fragment implements MediaController.MediaPlay
         getSongList();
 
 
-        /***************Static Data**********************/
-     /*   music.add(new Music(1,"Et chaque semaine"));
-        music.add(new Music(2,"elkhawana-الخونة"));
-        music.add(new Music(3,"taraji fel galb"));
-        music.add(new Music(4,"انت الدنيا لي نعيشوها"));
-        music.add(new Music(5,"no taraji no life"));*/
-//        music.add(new Music(6,"الدولة العاصمية"));
-//        music.add(new Music(7,"خلي العالم ينشرح"));
 
         /**********************************************************/
-        setController();
 
         LinearLayoutManager manager = new LinearLayoutManager(mContext);
         recyclerView = root.findViewById(R.id.music_recycleview);
         recyclerView.setLayoutManager(manager);
-        adapter = new MusicAdapter(mContext, music,controller,view,setController());
+        adapter = new MusicAdapter(mContext, music,controller,view);
         recyclerView.setAdapter(adapter);
+        setController();
         return root;
     }
     //connect to the service
@@ -114,21 +108,13 @@ public class musicFragment extends Fragment implements MediaController.MediaPlay
     public void onStart() {
         super.onStart();
         if(playIntent==null){
+            Log.d("laaaaaaaa", "onStart: here");
             playIntent = new Intent(mContext.getApplicationContext(), MusicService.class);
             mContext.bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
             mContext.startService(playIntent);
         }
     }
-    //user song select
-    public void songPicked(View view){
-        musicSrv.setSong(Integer.parseInt(view.getTag().toString()));
-        musicSrv.playSong();
-        if(playbackPaused){
-            setController();
-            playbackPaused=false;
-        }
-        controller.show(0);
-    }
+
     //method to retrieve song info from device
     public void getSongList(){
         //query external audio
@@ -156,21 +142,21 @@ public class musicFragment extends Fragment implements MediaController.MediaPlay
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //menu item selected
-        switch (item.getItemId()) {
-            case R.id.action_shuffle:
-                musicSrv.setShuffle();
-                break;
-            case R.id.action_end:
-//                stopService(playIntent);
-                musicSrv=null;
-                System.exit(0);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        //menu item selected
+//        switch (item.getItemId()) {
+//            case R.id.action_shuffle:
+//                musicSrv.setShuffle();
+//                break;
+//            case R.id.action_end:
+////                stopService(playIntent);
+//                musicSrv=null;
+//                System.exit(0);
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public void start() {
@@ -240,22 +226,31 @@ public class musicFragment extends Fragment implements MediaController.MediaPlay
         controller.setPrevNextListeners(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playNext();
+                try {
+                    playNext();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playPrev();
+                try {
+                    playPrev();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         //set and show
         controller.setMediaPlayer(this);
         controller.setAnchorView(view.findViewById(R.id.media_controller));
         controller.setEnabled(true);
+        controller.setPressed(true);
         controller.setBackgroundColor(getResources().getColor(R.color.yellow));
         return controller;
     }
-    private void playNext(){
+    private void playNext() throws IOException {
         musicSrv.playNext();
         if(playbackPaused){
             setController();
@@ -263,7 +258,7 @@ public class musicFragment extends Fragment implements MediaController.MediaPlay
         }
         controller.show(0);
     }
-    private  void playPrev(){
+    private  void playPrev()throws IOException {
         musicSrv.playPrev();
         if(playbackPaused){
             setController();
@@ -272,4 +267,36 @@ public class musicFragment extends Fragment implements MediaController.MediaPlay
         controller.show(0);
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        musicSrv.pausePlayer();
+        paused=true;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(paused==true)
+        {try {
+            musicSrv.playSong();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        controller.show();
+        paused=false;}
+    }
+
+    @Override
+    public void onStop() {
+        controller.hide();
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        getActivity().stopService(playIntent);
+        musicSrv=null;
+        super.onDestroy();
+    }
 }

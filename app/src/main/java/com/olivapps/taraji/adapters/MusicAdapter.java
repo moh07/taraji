@@ -21,6 +21,7 @@ import com.olivapps.taraji.fragement.music.musicFragment;
 import com.olivapps.taraji.remote.model.Music;
 import com.olivapps.taraji.services.MusicService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,15 +30,13 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     private LayoutInflater mInflater;
     private MusicAdapter.ItemClickListener mClickListener;
     public  Context mContext;
-    private MusicController controller;
 
     View view;
     // data is passed into the constructor
-    public MusicAdapter(Context context, ArrayList<Music> data,MusicController controller,View v,MusicController mc) {
+    public MusicAdapter(Context context, ArrayList<Music> data,MusicController controller,View v) {
         this.mInflater = LayoutInflater.from(context);
         this.mData.addAll(data);
         mContext=context;
-        this.controller=mc;
         this.view=v;
 
 
@@ -60,19 +59,33 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("id", "onClick: " + musicFragment.musicSrv.toString());
+
                 if (musicFragment.musicBound) {
                     Log.d("id", "onClick: " + musicFragment.musicSrv.toString());
+
                     musicFragment.musicSrv.setSong(position);
-                    musicFragment.musicSrv.playSong();
-                  /*  if (musicFragment.playbackPaused) {
-                        musicFragment.playbackPaused = false;
+                    try {
+                        musicFragment.musicSrv.playSong();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                    }*/
-                    controller.show(0);
+//                    setController();
+////                   if (musicFragment.playbackPaused) {
+////                       setController();
+////                       musicFragment.playbackPaused = false;
+////
+////                    }
+
+                    musicFragment.controller.show(0);
+
+                    }
+                   // musicFragment.musicSrv.go();
 
 
 
-                }
+
             }
         });
 
@@ -106,5 +119,119 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
 
 
 
+    }
+
+
+    public MusicController setController(){
+        musicFragment.controller = new MusicController(view.getContext());
+        //set previous and next button listeners
+        musicFragment.controller.setPrevNextListeners(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    playNext();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    playPrev();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        //set and show
+        musicFragment.controller.setMediaPlayer(
+                new MediaController.MediaPlayerControl()
+                {
+                    @Override
+                    public void start() {
+                        musicFragment.musicSrv.go();
+                    }
+
+                    @Override
+                    public void pause() {
+                        musicFragment.playbackPaused=true;
+                        musicFragment.musicSrv.pausePlayer();
+                    }
+
+                    @Override
+                    public int getDuration() {
+                        if(musicFragment.musicSrv!=null && musicFragment.musicBound && musicFragment.musicSrv.isPng())
+                            return musicFragment.musicSrv.getDur();
+                        else return 0;
+                    }
+
+                    @Override
+                    public int getCurrentPosition() {
+                        if(musicFragment.musicSrv!=null && musicFragment.musicBound && musicFragment.musicSrv.isPng())
+                            return musicFragment.musicSrv.getPosn();
+                        else return 0;
+                    }
+
+                    @Override
+                    public void seekTo(int i) {
+
+                        musicFragment.musicSrv.seek(i);
+                    }
+
+                    @Override
+                    public boolean isPlaying() {
+                        if(musicFragment.musicSrv!=null && musicFragment.musicBound)
+                            return musicFragment.musicSrv.isPng();
+                        return false;
+                    }
+
+
+            @Override
+            public int getBufferPercentage() {
+                return 0;
+            }
+
+            @Override
+            public boolean canPause() {
+                return false;
+            }
+
+            @Override
+            public boolean canSeekBackward() {
+                return false;
+            }
+
+            @Override
+            public boolean canSeekForward() {
+                return false;
+            }
+
+            @Override
+            public int getAudioSessionId() {
+                return 0;
+            }
+        });
+        musicFragment.controller.setAnchorView(view.findViewById(R.id.media_controller));
+        musicFragment.controller.setEnabled(true);
+        musicFragment.controller.setBackgroundColor(view.getResources().getColor(R.color.yellow));
+        return musicFragment.controller;
+    }
+
+    private void playNext()throws IOException {
+        musicFragment.musicSrv.playNext();
+        if(musicFragment.playbackPaused){
+            setController();
+            musicFragment.playbackPaused=false;
+        }
+        musicFragment.controller.show(0);
+    }
+    private  void playPrev()throws IOException {
+        musicFragment.musicSrv.playPrev();
+        if(musicFragment.playbackPaused){
+            setController();
+            musicFragment.playbackPaused=false;
+        }
+        musicFragment.controller.show(0);
     }
 }

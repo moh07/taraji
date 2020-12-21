@@ -1,24 +1,32 @@
 package com.olivapps.taraji.services;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
 
 import com.olivapps.taraji.MainActivity;
 import com.olivapps.taraji.R;
 import com.olivapps.taraji.remote.model.Music;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -67,7 +75,11 @@ public class MusicService extends Service implements
         //check if playback has reached the end of a track
         if(player.getCurrentPosition()>0){
             mediaPlayer.reset();
-            playNext();
+            try {
+                playNext();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -84,22 +96,27 @@ public class MusicService extends Service implements
         //start playback
         mediaPlayer.start();
         //notification
-        Intent notIntent = new Intent(this, MainActivity.class);
-        notIntent.putExtra("fromservice",true);
-        notIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendInt = PendingIntent.getActivity(this, 0,
-                notIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {startMyOwnForeground();}
 
-        Notification.Builder builder = new Notification.Builder(this);
+        else {
+            Intent notIntent = new Intent(this, MainActivity.class);
+            notIntent.putExtra("fromservice", true);
+            notIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            PendingIntent pendInt = PendingIntent.getActivity(this, 0,
+                    notIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        builder.setContentIntent(pendInt)
-                .setSmallIcon(R.drawable.play)
-                .setTicker(currentMusicTitle)
-                .setOngoing(true)
-                .setContentTitle("Playing")
-                .setContentText(currentMusicTitle);
-        Notification not = builder.build();
-        startForeground(NOTIFY_ID, not);
+            Notification.Builder builder = new Notification.Builder(this);
+
+            builder.setContentIntent(pendInt)
+                    .setSmallIcon(R.drawable.play)
+                    .setTicker(currentMusicTitle)
+                    .setOngoing(true)
+                    .setContentTitle("Playing")
+                    .setContentText(currentMusicTitle);
+            Notification not = builder.build();
+            startForeground(NOTIFY_ID, not);
+        }
 
     }
 
@@ -162,13 +179,13 @@ public class MusicService extends Service implements
         player.start();
     }
     //skip to previous track
-    public void playPrev(){
+    public void playPrev() throws IOException {
         musicPosn--;
         if(musicPosn<0) musicPosn=musics.size()-1;
         playSong();
     }
     //skip to next
-    public void playNext(){
+    public void playNext() throws IOException {
         if(shuffle){
             int newSong = musicPosn;
             while(newSong==musicPosn){
@@ -192,7 +209,7 @@ public class MusicService extends Service implements
         else shuffle=true;
     }
     //play a song
-    public void playSong(){
+    public void playSong() throws IOException {
         //play
         player.reset();
         //get song
@@ -212,7 +229,10 @@ public class MusicService extends Service implements
         catch(Exception e){
             Log.e("MUSIC SERVICE", "Error setting data source", e);
         }
-        player.prepareAsync();
+        player.prepare();
+        player.start();
+
+
     }
     public void initMusicPlayer(){
         //set player properties
@@ -230,6 +250,27 @@ public class MusicService extends Service implements
     }
 
 
+// med
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void startMyOwnForeground(){
+        String NOTIFICATION_CHANNEL_ID = "com.example.simpleapp";
+        String channelName = "My Background Service";
+        NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+        chan.setLightColor(Color.BLUE);
+        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        assert manager != null;
+        manager.createNotificationChannel(chan);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+        Notification notification = notificationBuilder.setOngoing(true)
+                .setSmallIcon(R.drawable.play)
+                .setContentTitle("App is running in background")
+                .setPriority(NotificationManager.IMPORTANCE_MIN)
+                .setCategory(Notification.CATEGORY_SERVICE)
+                .build();
+        startForeground(2, notification);
+    }
 
 }
