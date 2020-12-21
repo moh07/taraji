@@ -1,4 +1,4 @@
-package com.olivapps.taraji.fragement;
+package com.olivapps.taraji.fragement.slideshow;
 
 import android.content.Context;
 import android.os.Bundle;

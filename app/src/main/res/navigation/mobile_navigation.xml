@@ -26,10 +26,26 @@
     <fragment
         android:id="@+id/nav_rating"
         android:name="com.olivapps.taraji.fragement.rating.RatingFragment"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/rating_fragment" />
+    <fragment
+        android:id="@+id/profil"
+        android:name="com.olivapps.taraji.fragement.profile.ProfileFragment"
+        tools:layout="@layout/profile_fragment" />
     <fragment
         android:id="@+id/botomlive"
         android:name="com.olivapps.taraji.fragement.gallery.GalleryFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_game"
+        android:name="com.olivapps.taraji.fragement.cellue.CellueFragment"
+        tools:layout="@layout/cellue_fragment" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.olivapps.taraji.fragement.contact.ContactFragment"
+        tools:layout="@layout/contact_fragment" />
+    <fragment
+        android:id="@+id/nav_store"
+        android:name="com.olivapps.taraji.fragement.store.StoreFragment"
+        tools:layout="@layout/store_fragment" />
+
 </navigation>

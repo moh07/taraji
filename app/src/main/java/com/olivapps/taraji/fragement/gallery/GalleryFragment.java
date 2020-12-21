@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,9 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.olivapps.taraji.R;
 import com.olivapps.taraji.adapters.GalleryAdapter;
-import com.olivapps.taraji.fragement.SlideshowDialogFragment;
-import com.olivapps.taraji.remote.model.Classement;
-import com.olivapps.taraji.remote.model.Equipe;
+import com.olivapps.taraji.fragement.slideshow.SlideshowDialogFragment;
 import com.olivapps.taraji.remote.model.Gallery;
 
 import java.util.ArrayList;

@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.sim">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/backgroundred"
+        tools:context=".activity.sim"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true">
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:src="@drawable/tarajimobile"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/simtittle"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
+                android:layout_gravity="left"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextborder"
+                android:hint="@string/hintnum"
+                android:padding="3dp"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextborder"
+                android:hint="@string/hintpass"
+                android:padding="3dp"
+                android:inputType="textPassword"
+                android:layout_marginBottom="10dp"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextborder"
+                android:hint="@string/hintfirstname"
+                android:padding="3dp"
+                android:inputType="text"
+                android:layout_marginBottom="10dp"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextborder"
+                android:hint="@string/hintlastname"
+                android:padding="3dp"
+                android:inputType="text"
+                android:layout_marginBottom="10dp"
+
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextborder"
+                android:hint="@string/hintemail"
+                android:padding="3dp"
+                android:inputType="textEmailAddress"
+
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/acceptterms"
+                android:layout_gravity="left"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_compte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnvalider"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/yellow"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp"
+                android:padding="3dp"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>

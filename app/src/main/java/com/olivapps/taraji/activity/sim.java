@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.olivapps.taraji.R;
+
 public class sim extends AppCompatActivity {
 
     @Override

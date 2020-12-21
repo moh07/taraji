@@ -1,4 +1,4 @@
-package com.olivapps.taraji.fragement;
+package com.olivapps.taraji.fragement.store;
 
 import androidx.lifecycle.ViewModel;
 
